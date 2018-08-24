@@ -10,10 +10,6 @@ package arquitectura;
  * @author Andrés
  */
 public class Administrador {
-    
-    public Administrador(){
-        super()
-    }
 
     public void create() {
         System.out.println("Se ha creado administrador");
