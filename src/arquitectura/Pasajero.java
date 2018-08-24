@@ -5,17 +5,20 @@
  */
 package arquitectura;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Andrés
  */
-public class Pasajero extends Usuario{
+public class Pasajero extends Usuario {
 
-    
     public Pasajero(String nombre, String correo, String contraseña) {
         super(nombre, correo, contraseña);
     }
-    
+
+    public Pasajero() {
+    }
 
     @Override
     public void consultar() {
@@ -23,14 +26,18 @@ public class Pasajero extends Usuario{
     }
 
     @Override
-    public void eliminar() {
-        System.out.println("Se ha eliminado pasajero");
+    public void eliminar(String correo) {
+        ArrayList<Usuario> usuarios = this.getUsuarios();
+        for (Usuario us : usuarios) {
+            if (us.getCorreo().equals(correo)) {
+                usuarios.remove(us);
+            }
+        }
     }
 
     @Override
     public String toString() {
         return "Pasajero"; //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }

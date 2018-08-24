@@ -5,6 +5,8 @@
  */
 package arquitectura;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Andrés
@@ -21,13 +23,18 @@ public class Conductor extends Usuario{
     }
 
     @Override
-    public void eliminar() {
-        System.out.println("Se ha eliminado conductor");
+    public String toString() {
+        return "Conductor"; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String toString() {
-        return "Conductor"; //To change body of generated methods, choose Tools | Templates.
+    public void eliminar(String correo) {
+        ArrayList<Usuario> usuarios = this.getUsuarios();
+        for (Usuario us: usuarios) {
+            if(us.getCorreo().equals(correo)) {
+                usuarios.remove(us);
+            }
+        }
     }
    
 }

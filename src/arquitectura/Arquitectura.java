@@ -21,6 +21,9 @@ public class Arquitectura {
         String nombre;
         String correo;
         String contraseña;
+        Usuario pasajero = new Pasajero();
+        Usuario conductor;
+        Usuario administrador;
         
         int opcion = Integer.parseInt(JOptionPane.showInputDialog(""
                 + "Seleccione la opción: \n"
@@ -41,21 +44,21 @@ public class Arquitectura {
                     nombre = JOptionPane.showInputDialog("Introducir nombre");
                     correo = JOptionPane.showInputDialog("Introducir correo");
                     contraseña = JOptionPane.showInputDialog("Introducir contraseña");
-                    Usuario pasajero = new Pasajero(nombre, correo, contraseña);
+                    pasajero = new Pasajero(nombre, correo, contraseña);
                     pasajero.adicionar(pasajero);
                     break;
                 case 2:
                     nombre = JOptionPane.showInputDialog("Introducir nombre");
                     correo = JOptionPane.showInputDialog("Introducir correo");
                     contraseña = JOptionPane.showInputDialog("Introducir contraseña");
-                    Usuario conductor = new Conductor(nombre, correo, contraseña);
+                    conductor = new Conductor(nombre, correo, contraseña);
                     conductor.adicionar(conductor);
                     break;
                 case 3:
                     nombre = JOptionPane.showInputDialog("Introducir nombre");
                     correo = JOptionPane.showInputDialog("Introducir correo");
                     contraseña = JOptionPane.showInputDialog("Introducir contraseña");
-                    Usuario administrador = new AdministradorAdapter(nombre, correo, contraseña);
+                    administrador = new AdministradorAdapter(nombre, correo, contraseña);
                     administrador.adicionar(administrador);
                     break;
                 case 4:
@@ -68,12 +71,28 @@ public class Arquitectura {
                     + "2. Conductor \n"
                     + "3. Administrador \n"
                     + "0. Regresar"));
+            correo = JOptionPane.showInputDialog("Introduce el correo del usuario a modicifar");
             switch(opcion2) {
                 case 1:
+                    nombre = JOptionPane.showInputDialog("Introducir nombre");
+                    correo = JOptionPane.showInputDialog("Introducir correo");
+                    contraseña = JOptionPane.showInputDialog("Introducir contraseña");
+                    pasajero = new Pasajero(nombre, correo, contraseña);
+                    pasajero.modificar(pasajero, correo);
                     break;
                 case 2:
+                    nombre = JOptionPane.showInputDialog("Introducir nombre");
+                    correo = JOptionPane.showInputDialog("Introducir correo");
+                    contraseña = JOptionPane.showInputDialog("Introducir contraseña");
+                    conductor = new Conductor(nombre, correo, contraseña);
+                    conductor.modificar(conductor, correo);
                     break;
                 case 3:
+                    nombre = JOptionPane.showInputDialog("Introducir nombre");
+                    correo = JOptionPane.showInputDialog("Introducir correo");
+                    contraseña = JOptionPane.showInputDialog("Introducir contraseña");
+                    administrador = new AdministradorAdapter(nombre, correo, contraseña);
+                    administrador.modificar(administrador, correo);
                     break;
                 case 4:
                     break;    
@@ -85,16 +104,17 @@ public class Arquitectura {
                     + "2. Conductor \n"
                     + "3. Administrador \n"
                     + "0. Regresar"));
+            correo = JOptionPane.showInputDialog("Introduce el correo del usuario a eliminar");
             switch(opcion3) {
                 case 1:
+                    pasajero.eliminar(correo);
                     break;
                 case 2:
                     break;
                 case 3:
                     break;
                 case 4:
-                    break;
-                    
+                    break;  
             }
                 break;
             case 4:

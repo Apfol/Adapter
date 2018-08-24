@@ -14,23 +14,31 @@ import java.util.ArrayList;
 public abstract class Usuario {
 
     private String nombre;
-    private String usuario;
+    private String correo;
     private String contraseña;
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
+    
+    public Usuario() {
+    }
     
     public Usuario(String nombre, String usuario, String contraseña) {
         this.nombre = nombre;
-        this.usuario = usuario;
+        this.correo = usuario;
         this.contraseña = contraseña;
     }
+
     
-    private static final ArrayList<Usuario> usuarios = new ArrayList<>();
     
     public void adicionar(Usuario usuario) {
         usuarios.add(usuario);
     };
-    public void modificar(Usuario usuario, int posicion) {
-        usuarios.remove(posicion);
-        usuarios.add(usuario);
+    public void modificar(Usuario usuario, String correo) {
+        for (Usuario us: usuarios) {
+            if(us.correo.equals(correo)) {
+                usuarios.remove(us);
+            }
+            usuarios.add(usuario);
+        }
     };
     public void mostrarUsuarios() {
         usuarios.forEach((us) -> {
@@ -38,7 +46,7 @@ public abstract class Usuario {
         });
     };
     abstract public void consultar();
-    abstract public void eliminar();
+    abstract public void eliminar(String correo);
 
     public String getNombre() {
         return nombre;
@@ -48,14 +56,6 @@ public abstract class Usuario {
         this.nombre = nombre;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public String getContraseña() {
         return contraseña;
     }
@@ -63,7 +63,25 @@ public abstract class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public static ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public static void setUsuarios(ArrayList<Usuario> usuarios) {
+        Usuario.usuarios = usuarios;
+    }
    
+    
+    
 }
 
 
