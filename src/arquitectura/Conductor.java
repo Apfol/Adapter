@@ -10,6 +10,10 @@ package arquitectura;
  * @author Andrés
  */
 public class Conductor extends Usuario{
+    
+    public Conductor(String nombre, String correo, String contraseña) {
+        super(nombre, correo, contraseña);
+    }
 
     @Override
     public void consultar() {

@@ -11,6 +11,12 @@ package arquitectura;
  */
 public class Pasajero extends Usuario{
 
+    
+    public Pasajero(String nombre, String correo, String contraseña) {
+        super(nombre, correo, contraseña);
+    }
+    
+
     @Override
     public void consultar() {
         System.out.println("Se ha consultado pasajero");

@@ -13,6 +13,10 @@ public class AdministradorAdapter extends Usuario {
 
     private Administrador administrador = new Administrador();
 
+    public AdministradorAdapter(String nombre, String usuario, String contraseña) {
+        super(nombre, usuario, contraseña);
+    }
+
     @Override
     public void consultar() {
         this.administrador.brief();
