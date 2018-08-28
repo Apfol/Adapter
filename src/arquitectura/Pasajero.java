@@ -6,6 +6,7 @@
 package arquitectura;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +23,14 @@ public class Pasajero extends Usuario {
 
     @Override
     public void consultar() {
-        System.out.println("Se ha consultado pasajero");
+        String datosUsuarios = "";
+        ArrayList<Usuario> usuarios = this.getUsuarios();
+        for (Usuario us: usuarios) {
+            if(us instanceof Pasajero) {
+                datosUsuarios += us.getNombre() + " " + us.getCorreo() + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, datosUsuarios);
     }
 
     @Override

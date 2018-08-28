@@ -6,6 +6,7 @@
 package arquitectura;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +19,21 @@ public class AdministradorAdapter extends Usuario {
     public AdministradorAdapter(String nombre, String usuario, String contraseña) {
         super(nombre, usuario, contraseña);
     }
+    
+    public AdministradorAdapter() {
+        
+    }
 
     @Override
     public void consultar() {
-        this.administrador.brief();
+        String datosUsuarios = "";
+        ArrayList<Usuario> usuarios = this.getUsuarios();
+        for (Usuario us: usuarios) {
+            if(us instanceof AdministradorAdapter) {
+                datosUsuarios += us.getNombre() + " " + us.getCorreo() + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, datosUsuarios);
     }
 
     @Override
